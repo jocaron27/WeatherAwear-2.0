@@ -1,9 +1,8 @@
-/// <reference types="@types/googlemaps" />
 'use strict';
 
 //#region ------------------------- Imports --------------------------
 import { appTypes } from './api';
-import { google, createClient, GoogleMapsClient } from '@google/maps';
+import { createClient } from '@google/maps';
 import { Logger } from '../logger';
 const { Item, Suggestion, User } = require('../db/models');
 const axios = require('axios');
@@ -138,8 +137,8 @@ class ApiAdapter {
         this.logger.debug(`${startTime} - Call Starting: APIAdapter@getLocation`);
 
         if (!requestInfo.address) cb(null, 'No location provided');
-
-        const geoCoder: GoogleMapsClient = createClient({
+        
+        const geoCoder = createClient({
             key: process.env.GOOGLE_GEOLOCATION_KEY
         });
         
