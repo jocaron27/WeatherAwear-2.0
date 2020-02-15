@@ -26,3 +26,4 @@ secrets.ts
 secrets.js
 *.js.map
 *.js
+!Gruntfile.js
