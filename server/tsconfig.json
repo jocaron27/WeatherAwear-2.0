@@ -1,20 +1,30 @@
 {
   "extends": "../tsconfig.json",
+  "compileOnSave": false,
   "compilerOptions": {
-    "skipLibCheck": true,
-    "target": "es6",
-    "module": "commonjs",
-    "allowSyntheticDefaultImports": false,
+    "target": "ES6",
+    "noResolve": false,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "module": "CommonJS",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "removeComments": false,    
+    "listFiles": false,
+    "declaration": false,
+    "moduleResolution": "node",
+    "isolatedModules": false,
+    "downlevelIteration": true,
+    "typeRoots": ["../node_modules/@types"],
     "types": [
       "node",
       "express",
       "googlemaps",
       "jasmine"
     ],
-    "typeRoots": ["../node_modules/@types"],
-    "lib": [
-      "es2015",
-      "es2018"
-    ]
-  }
+    "strict": false
+  },
+  "exclude": [
+    "../node_modules"
+  ]
 }

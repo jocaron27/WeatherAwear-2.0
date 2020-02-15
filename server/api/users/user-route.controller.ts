@@ -1,5 +1,6 @@
 import * as Express from 'express';
 import { Request } from 'express';
+import { appTypes } from '../api';
 
 export interface IGetUserAuthInfoRequest extends Request {
     user: appTypes.User;

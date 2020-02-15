@@ -20,19 +20,19 @@ export class Logger {
         // empty constructor
     }
 
-    log(arg1: any, arg2?: any) {
+    public log(arg1: any, arg2?: any) {
         console.log(...arguments);
     }
 
-    debug(arg1: any, arg2?: any) {
+    public debug(arg1: any, arg2?: any) {
         console.log(this.debugColor(...arguments));
     }
 
-    info(arg1: any, arg2?: any) {
+    public info(arg1: any, arg2?: any) {
         console.log(this.infoColor(...arguments));
     }
 
-    error(arg1: any, arg2?: any) {
+    public error(arg1: any, arg2?: any) {
         console.log(this.errorColor(...arguments));
     }
 

@@ -3,6 +3,7 @@ import user from './user-route.controller';
 const router = require('express').Router();
 
 module.exports = router;
+console.log('test');
 
 // get logged in user
 // api/users
