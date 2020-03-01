@@ -52,23 +52,23 @@ const createApp = () => {
   app.use('/auth', require('./auth'));
   app.use('/api', require('./api'));
 
-  // // static file-serving middleware
-  // app.use(express.static(path.join(__dirname, '..', 'client')));
+  // static file-serving middleware
+  app.use(express.static(path.join(__dirname, '..', 'public')));
 
-  // // any remaining requests with an extension (.js, .css, etc.) send error
-  // app.use((req, res, next) => {
-  //   if (path.extname(req.path).length) {
-  //     const err = new Error('Not found');
-  //     next(err);
-  //   } else {
-  //     next();
-  //   }
-  // });
+  // any remaining requests with an extension (.js, .css, etc.) send error
+  app.use((req, res, next) => {
+    if (path.extname(req.path).length) {
+      const err = new Error('Not found');
+      next(err);
+    } else {
+      next();
+    }
+  });
 
-  // // sends index.html
-  // app.use('*', (req, res) => {
-  //   res.sendFile(path.join(__dirname, '..', 'client/index.html'));
-  // });
+  // sends index.html
+  app.use('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public/index.html'));
+  });
 
   // error handling endware
   app.use((err, req, res, next) => {
