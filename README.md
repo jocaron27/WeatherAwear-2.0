@@ -44,10 +44,10 @@ Node > 6.0
 ---------------
 
 git clone https://github.com/jocaron27/weatherwear.git<br>
+Create server/secrets.ts with: process.env.DARKSKY_KEY, process.env.GOOGLE_CALLBACK,process.env.GOOGLE_CLIENT_ID,process.env.GOOGLE_CLIENT_SECRET,process.env.GOOGLE_GEOLOCATION_KEY,process.env.PG_USER,process.env.PG_PW,process.env.PORT<br>
 npm install<br>
-npm run seed<br>
-npm run start-dev<br>
-view on localhost://8080<br>
+npm run start<br>
+view on localhost:8080 or your specified process.env.PORT<br>
 
 <a name="next"></a>
 
