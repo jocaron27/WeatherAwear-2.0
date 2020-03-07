@@ -60,8 +60,3 @@ Additional features in the works:<br>
 -Personalized Suggestions: User feedback creates personalizes associations between weather and clothing<br>
 -Custom clothing items: User can add photos of their personal wardrobe items<br>
 -Packing lists: User can create a packing list based on destination's weather & suggested items<br>
-
-Additional dev setup:<br>
--HTTP interceptor (delay APIs until user auth)<br>
--Refactor server-side APIs<br>
--Add more thorough error handling<br>
