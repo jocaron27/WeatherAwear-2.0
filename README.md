@@ -1,44 +1,62 @@
+Note: This is an in-progress upgrade of an app to React + Typescript. Original/complete code is at https://github.com/jocaron27/weatherwear
+
+## Contents
+-------------
+1. [About](#about)
+2. [Deploy Link](#deployed)
+3. [Requirements](#reqs)
+4. [Run Locally](#local)
+5. [Looking Ahead](#next)
+
+<a name="about"></a>
+
+## About
+-------------
+
+WeatherAwear is a weather app providing weather-based apparel suggestions.
+
+Users can:<br>
+-Create an account or sign up with Google <br>
+-See the weather for their last search on their personal dashboard<br>
+-Search any city in the world<br>
+-See the 7-day forecast for the selected city<br>
+-View weather-based apparel suggestions for each day in the forecast<br>
+-Switch between Fahrenheit and Celcius<br>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<a name="deployed"></a>
 
-In the project directory, you can run:
+## Deployed on Heroku
+---------------
+https://weatherawear.herokuapp.com/
 
-### `npm start`
+<a name="reqs"></a>
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Requirements
+---------------
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Node > 6.0
 
-### `npm test`
+<a name="local"></a>
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Run Locally
+---------------
 
-### `npm run build`
+git clone https://github.com/jocaron27/weatherwear.git<br>
+npm install<br>
+npm run seed<br>
+npm run start-dev<br>
+view on localhost://8080<br>
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<a name="next"></a>
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Looking Ahead
+---------------
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Additional features in the works:<br>
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+-Mobile app<br>
+-Personalized Suggestions: User feedback creates personalizes associations between weather and clothing<br>
+-Custom clothing items: User can add photos of their personal wardrobe items<br>
+-Packing lists: User can create a packing list based on destination's weather & suggested items<br>
