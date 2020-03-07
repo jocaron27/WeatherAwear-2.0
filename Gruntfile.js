@@ -26,24 +26,28 @@ module.exports = function(grunt) {
             },
             dev: {
                 options: {
-                    script: './server/index.js',
+                    script: './dist/server/index.js',
                     debug: true,
-                    node_env: 'development'
+                    // node_env: 'development'
                 }
             }
         },
         'ts': {
-            server: {
-                tsconfig: './server/tsconfig.json',
+            default: {
+                // tsconfig: './server/tsconfig.json',
                 src: [
                     './server/**/*.ts',
                     '!./server/**/*.d.ts',
-                    '!./server/**/*.spec.ts'
+                    '!./server/**/*.spec.ts',
+                    '!node_modules/**/*.ts',
+                    '!node_modules/**/*.d.ts',
+                    '!node_modules/@types/**/*.d.ts'
                 ],
                 options: {
                     fast: 'never',
-                    verbose: true
-                    // compiler: './node_modules/typescript/bin/tsc'
+                    verbose: true,
+                    downlevelIteration: true,
+                    compiler: './node_modules/typescript/bin/tsc'
                 }
             }
         },
@@ -61,7 +65,7 @@ module.exports = function(grunt) {
             },
             express: {
                 files: ['./**/*.ts'],
-                tasks: ['express:dev:stop', 'ts', 'express:dev'],
+                tasks: ['express:dev:stop', 'ts', 'copy', 'express:dev'],
                 options: {
                     spawn: false
                 }
