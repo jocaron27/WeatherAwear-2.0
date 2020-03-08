@@ -1,10 +1,13 @@
+const webpackConfig = require('./webpack.config');
+
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         'clean': {
             options: {},
-            server: ['./dist/server/**'],
-            serverSrc: ['./server/**/{*.js,*.map}']
+            dist: ['./dist/server/**'],
+            server: ['./server/**/{*.js,*.map}'],
+            client: ['./src/**/{*.js,*.map}']
         },
         'copy': {
             server: {
@@ -33,8 +36,7 @@ module.exports = function(grunt) {
             }
         },
         'ts': {
-            default: {
-                // tsconfig: './server/tsconfig.json',
+            server: {
                 src: [
                     './server/**/*.ts',
                     '!./server/**/*.d.ts',
@@ -48,6 +50,22 @@ module.exports = function(grunt) {
                     verbose: true,
                     downlevelIteration: true,
                     compiler: './node_modules/typescript/bin/tsc'
+                }
+            },
+            client: {
+                src: [
+                    './src/**/*.ts',
+                    './src/**/*.tsx',
+                    '!./server/**/*.d.ts',
+                    '!./server/**/*.test.tsx',
+                ],
+                options: {
+                    fast: 'never',
+                    downlevelIteration: true,
+                    compiler: './node_modules/typescript/bin/tsc',
+                    jsx: 'react',
+                    allowSyntheticDefaultImports: true,
+                    esModuleInterop: true
                 }
             }
         },
@@ -63,13 +81,21 @@ module.exports = function(grunt) {
             options: {
                 spawn: false
             },
-            express: {
-                files: ['./**/*.ts'],
-                tasks: ['express:dev:stop', 'ts', 'copy', 'express:dev'],
-                options: {
-                    spawn: false
-                }
+            server: {
+                files: ['./server/**/*.ts'],
+                tasks: ['express:dev:stop', 'ts:server', 'copy', 'express:dev'],
+            },
+            client: {
+                files: ['./src/**/*.ts', './src/**/*.tsx'],
+                tasks: ['ts:client', 'webpack'],
             }
+        },
+        'webpack': {
+            options: {
+                stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            },
+            prod: webpackConfig,
+            dev: Object.assign({}, webpackConfig)
         }
     });
     grunt.loadNpmTasks('grunt-ts');
@@ -78,5 +104,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-express-server');
-    grunt.registerTask('start', ['clean', 'tslint:server', 'ts', 'copy', 'express:dev', 'watch:express']);
+    grunt.loadNpmTasks('grunt-webpack');
+    grunt.registerTask('start', ['clean:dist', 'tslint:server', 'ts:server', 'copy', 'ts:client', 'webpack', 'express:dev', 'watch']);
+    grunt.registerTask('ts-client', ['clean:client', 'ts:client']);
 };

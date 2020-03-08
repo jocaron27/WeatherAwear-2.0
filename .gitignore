@@ -17,6 +17,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+*.tmp.txt
 
 npm-debug.log*
 yarn-debug.log*
@@ -25,5 +26,7 @@ yarn-error.log*
 secrets.ts
 secrets.js
 *.js.map
-*.js
+/server/**/*.js
+/src/**/*.js
+/dist
 !Gruntfile.js
