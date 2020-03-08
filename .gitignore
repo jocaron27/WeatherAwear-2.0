@@ -25,6 +25,7 @@ yarn-error.log*
 
 secrets.ts
 secrets.js
+bundle.js
 *.js.map
 /server/**/*.js
 /src/**/*.js
