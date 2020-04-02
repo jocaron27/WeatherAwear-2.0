@@ -19,8 +19,7 @@
     "types": [
       "node",
       "express",
-      "googlemaps",
-      "jasmine"
+      "googlemaps"
     ],
     "strict": false
   },

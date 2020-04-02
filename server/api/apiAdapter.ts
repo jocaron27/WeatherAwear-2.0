@@ -1,5 +1,4 @@
-'use strict';
-
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
 //#region ------------------------- Imports --------------------------
 import { appTypes } from './api';
 import { createClient } from '@google/maps';

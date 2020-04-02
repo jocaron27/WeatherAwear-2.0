@@ -105,6 +105,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-webpack');
-    grunt.registerTask('start', ['clean:dist', 'tslint:server', 'ts:server', 'copy', 'ts:client', 'webpack', 'express:dev', 'watch']);
     grunt.registerTask('ts-client', ['clean:client', 'ts:client']);
+    grunt.registerTask('start', ['clean:dist', 'tslint:server', 'ts:server', 'copy', 'ts-client', 'webpack', 'express:dev', 'watch']);
 };
