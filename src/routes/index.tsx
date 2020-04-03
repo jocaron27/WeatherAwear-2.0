@@ -18,18 +18,31 @@ import history from './history';
 //#endregion
 
 const Routes: React.FC<PropTypes.RoutesProps> = (props) => {
+  const { isLoggedIn } = props;
+
+  const preLoginRoutes = (
+    <Switch>
+      {/* Routes placed here are available to all visitors */}
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
+      { /* Default route */}
+      <Route component={Login} />
+    </Switch>
+  )
+
+  const postLoginRoutes = (
+    <Switch>
+      {/* Routes placed here are available to logged in visitors */}
+      {/* <Route component={Home} /> */}
+      { /* Default route */}
+    </Switch>
+  );
 
   return (
     <Router history={history}>
         <Main>
-            <Nav {...props} />
-            <Switch>
-                { /* Default route */}
-                
-                {/* Routes placed here are available to all visitors */}
-                <Route path="/login" component={Login} />
-                <Route path="/signup" component={Signup} />
-            </Switch>
+          <Nav {...props} />
+          {isLoggedIn ? postLoginRoutes: preLoginRoutes}
         </Main>
     </Router>
   );

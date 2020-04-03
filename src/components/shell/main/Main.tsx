@@ -1,7 +1,7 @@
 import React from 'react';
-import * as PropTypes from '../PropTypes';
+import {shell} from '../shell';
 
-const Main: React.FC = (props: PropTypes.MainProps) => {
+const Main: React.FC = (props: shell.MainProps) => {
     const { children } = props;
 
     return (
